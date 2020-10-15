@@ -9,28 +9,21 @@ require 'player'
 require 'show'
 
 
-
+# Orchestre le jeu !
 class Application
   def perform
-    # TO DO : méthode qui initialise le jeu puis contient des boucles while pour faire tourner le jeu
-    #tant que la partie n'est pas terminée.
-
     game = Game.new
-  while game.check_token == true
-    while game.is_the_game_stop? == false
-    system('clear')
-    game.turn
-    game.switch_turn
+    while game.check_token == true
+      while game.is_the_game_stop? == false
+      system('clear')
+      game.turn
+      game.switch_turn
+      end
+      game.switch_turn
+      game.end
+      game.new_round
     end
-    game.switch_turn
-    game.end
-    game.new_round
   end
-end
-
-
-
-
 end
 
 
